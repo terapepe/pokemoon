@@ -14,7 +14,7 @@ export const metadata = {
     siteName: 'Pokemoon',
     type: 'website',
   },
-  twitter: { card: 'summary_large_image', site: '@PokemoonS', title: 'POKEMOON', description: site.slogan },
+  twitter: { card: 'summary_large_image', site: '@Pokemoon_Shop', title: 'POKEMOON', description: site.slogan },
 };
 
 export const viewport = { themeColor: '#070B24' };

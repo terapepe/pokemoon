@@ -3,7 +3,7 @@ import site from '@/config/site.json';
 export default function Community() {
   const items = [
     { icon: '✈️', title: 'Join Telegram', text: 'Chat with fellow trainers 24/7.', href: site.social.telegram },
-    { icon: '𝕏', title: 'Follow on X', text: '@PokemoonS — news, memes and launches.', href: site.social.x },
+    { icon: '𝕏', title: 'Follow on X', text: '@Pokemoon_Shop — news, memes and launches.', href: site.social.x },
     { icon: '🌌', title: 'Explore the Universe', text: 'Discover the Pokemoon world.', href: '#about' },
   ];
   return (
