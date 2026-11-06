@@ -5,7 +5,7 @@ import ChainBadge from './ChainBadge';
 import { useWallet } from './wallet/WalletContext';
 import { EVM_CHAINS, chainByKey } from '@/config/chains';
 
-const NAV = [['Home', '#home'], ['About', '#about'], ['Tokenomics', '#tokenomics'], ['Community', '#community']];
+const NAV = [['Home', '#home'], ['Tokenomics', '#tokenomics'], ['About', '#about'], ['Community', '#community']];
 const short = (a) => (a ? `${a.slice(0, 4)}…${a.slice(-4)}` : '');
 
 function WalletButton() {

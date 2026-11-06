@@ -15,8 +15,8 @@ export default function Home() {
       <Header />
       <main className="relative z-10">
         <Hero />
-        <About />
         <Tokenomics />
+        <About />
         <Community />
       </main>
       <Footer />
