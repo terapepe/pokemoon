@@ -1,0 +1,20 @@
+{
+  "name": "Pokenmoon",
+  "symbol": "$POKENMOON",
+  "domain": "https://pokemoon.shop",
+  "slogan": "CATCH THE MOON. GO POKEMOON!",
+  "totalSupply": "To be announced",
+  "blockchain": "Robinhood Chain · Base · BSC · Ethereum · Solana",
+
+  "contracts": {
+    "evm": "",
+    "solana": ""
+  },
+
+  "buyUrl": "",
+
+  "social": {
+    "x": "https://x.com/PokemoonS",
+    "telegram": ""
+  }
+}

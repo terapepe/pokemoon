@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body {
+  @apply bg-navy text-white font-body antialiased;
+  background-image:
+    radial-gradient(1200px 600px at 80% -10%, rgba(255, 217, 61, 0.12), transparent 60%),
+    radial-gradient(900px 600px at -10% 30%, rgba(72, 92, 255, 0.18), transparent 60%),
+    radial-gradient(800px 500px at 50% 110%, rgba(255, 138, 31, 0.12), transparent 60%);
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-display font-semibold tracking-wide transition duration-200 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-volt {
+    @apply btn bg-gradient-to-r from-volt to-ember text-navy shadow-[0_0_30px_rgba(255,200,60,0.45)] hover:shadow-[0_0_45px_rgba(255,200,60,0.75)] hover:-translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply btn border-2 border-volt/60 text-volt hover:bg-volt/10 hover:-translate-y-0.5;
+  }
+  .card {
+    @apply rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-md;
+  }
+  .section-title {
+    @apply font-display text-4xl font-bold sm:text-5xl;
+  }
+  .text-glow { text-shadow: 0 0 24px rgba(255, 217, 61, 0.55); }
+}
