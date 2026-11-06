@@ -7,11 +7,11 @@
   "blockchain": "Robinhood Chain · Base · BSC · Ethereum · Solana",
 
   "contracts": {
-    "evm": "",
-    "solana": ""
+    "evm": "0x44EFB0f23383f6a00fFce458A5aF33237d4f16Ea",
+    "solana": "C8Gx5t2TrRvacUidv7Q6HXuxFUqk3kisju3MMmJWW6ea "
   },
 
-  "buyUrl": "",
+  "buyUrl": "https://www.pangea.trade/app/t/0x44EFB0f23383f6a00fFce458A5aF33237d4f16Ea",
 
   "social": {
     "x": "https://x.com/Pokemoon_Shop",
