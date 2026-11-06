@@ -7,11 +7,11 @@
   "blockchain": "Robinhood Chain · Base · BSC · Ethereum · Solana",
 
   "contracts": {
-    "evm": "",
+    "evm": "0xace0777f5595b297020aa90a4647f514ac3542e8",
     "solana": ""
   },
 
-  "buyUrl": "",
+  "buyUrl": "https://ponsfamily.com/launchpad/0xace0777f5595b297020aa90a4647f514ac3542e8",
 
   "social": {
     "x": "https://x.com/Pokemoon_Shop",
