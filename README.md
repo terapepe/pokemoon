@@ -1,4 +1,4 @@
-# POKEMOON ($POKENMOON) — pokemoon.shop
+# POKEMOON ($POKEMOON) — pokemoon.shop
 
 Next.js 14 (static export) + Tailwind CSS. No backend.
 

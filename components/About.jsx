@@ -16,7 +16,7 @@ export default function About() {
           Pokemoon is a community-driven meme coin inspired by Pokémon and the legendary crypto dream of going to the Moon.
         </p>
         <p className="mt-4 font-display text-xl text-volt">
-          Catch the excitement. Join the community. Let&apos;s take $POKENMOON to the Moon!
+          Catch the excitement. Join the community. Let&apos;s take $POKEMOON to the Moon!
         </p>
         <div className="mt-10 grid gap-5 sm:grid-cols-3">
           {FEATURES.map((f) => (
