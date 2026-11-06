@@ -7,7 +7,7 @@
   "blockchain": "Robinhood Chain · Base · BSC · Ethereum · Solana",
 
   "contracts": {
-    "evm": "x",
+    "evm": "",
     "solana": ""
   },
 
