@@ -7,10 +7,10 @@
   "blockchain": "Robinhood Chain",
 
   "contracts": {
-    "evm": "0x44EFB0f23383f6a00fFce458A5aF33237d4f16Ea"
+    "evm": ""
   },
 
-  "buyUrl": "https://www.pangea.trade/app/t/0x44EFB0f23383f6a00fFce458A5aF33237d4f16Ea",
+  "buyUrl": "https://fobo.fun/?token=",
 
   "social": {
     "x": "https://x.com/Pokemoon_Shop",
