@@ -7,20 +7,18 @@ All editable data lives in **`config/site.json`** (edit directly on GitHub):
 
 | Field | Meaning |
 |---|---|
-| `contracts.evm` | One CA shared by **Robinhood Chain, Base, BSC, Ethereum** |
-| `contracts.solana` | Solana mint address |
+| `contracts.evm` | Contract address on **Robinhood Chain** |
 | `totalSupply`, `blockchain` | Tokenomics cards |
 | `buyUrl` | Link for the BUY button (empty → scrolls to Tokenomics) |
 | `social.x`, `social.telegram` | Community links (empty → "Coming soon") |
 
 When a CA is filled in, the COPY button and explorer links turn on automatically:
-Robinhood → robinhoodchain.blockscout.com · Base → basescan.org · BSC → bscscan.com · ETH → etherscan.io · Solana → solscan.io
+Robinhood → robinhoodchain.blockscout.com
 
 Network params (chain IDs, RPC, explorers) are in `config/chains.js`.
 
 ## Wallet
 - EVM: any injected wallet via EIP-6963 (MetaMask, Coinbase Wallet, Rabby, OKX…), auto add/switch network.
-- Solana: Phantom, Solflare.
 - Session stored in localStorage (public address only). Disconnect anytime.
 
 ## Run / build

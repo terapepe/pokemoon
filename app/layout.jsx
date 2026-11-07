@@ -5,8 +5,8 @@ export const metadata = {
   metadataBase: new URL(site.domain),
   title: `POKEMOON (${site.symbol}) — Catch the Moon`,
   description:
-    'Pokemoon is a community-driven meme coin on Robinhood Chain, Base, BSC, Ethereum and Solana. Catch the Moon. Go Pokemoon!',
-  keywords: ['Pokemoon', 'POKEMOON', 'meme coin', 'Robinhood Chain', 'Base', 'Solana', 'crypto'],
+    'Pokemoon is a community-driven meme coin on Robinhood Chain. Catch the Moon. Go Pokemoon!',
+  keywords: ['Pokemoon', 'POKEMOON', 'meme coin', 'Robinhood Chain', 'crypto'],
   openGraph: {
     title: `POKEMOON (${site.symbol})`,
     description: site.slogan,

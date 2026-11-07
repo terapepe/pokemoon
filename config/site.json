@@ -4,11 +4,10 @@
   "domain": "https://pokemoon.shop",
   "slogan": "CATCH THE MOON. GO POKEMOON!",
   "totalSupply": "To be announced",
-  "blockchain": "Robinhood Chain · Base · BSC · Ethereum · Solana",
+  "blockchain": "Robinhood Chain",
 
   "contracts": {
-    "evm": "0x44EFB0f23383f6a00fFce458A5aF33237d4f16Ea",
-    "solana": "C8Gx5t2TrRvacUidv7Q6HXuxFUqk3kisju3MMmJWW6ea "
+    "evm": "0x44EFB0f23383f6a00fFce458A5aF33237d4f16Ea"
   },
 
   "buyUrl": "https://www.pangea.trade/app/t/0x44EFB0f23383f6a00fFce458A5aF33237d4f16Ea",

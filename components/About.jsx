@@ -1,7 +1,7 @@
 const FEATURES = [
   { icon: '⚡', title: 'Explore', text: 'A playful universe of electric creatures, planets and moon quests.' },
   { icon: '🌕', title: 'Catch', text: 'Catch the excitement and every pump on the way to the Moon.' },
-  { icon: '🚀', title: 'Launch', text: 'Community-driven, multi-chain, and fuelled by memes.' },
+  { icon: '🚀', title: 'Launch', text: 'Community-driven, on Robinhood Chain, and fuelled by memes.' },
 ];
 
 export default function About() {

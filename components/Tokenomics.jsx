@@ -54,7 +54,6 @@ function ContractRow({ title, ca, chains }) {
 
 export default function Tokenomics() {
   const evm = CHAINS.filter((c) => c.type === 'evm');
-  const sol = CHAINS.filter((c) => c.type === 'solana');
   const info = [
     ['Token Name', site.name],
     ['Symbol', site.symbol],
@@ -78,8 +77,7 @@ export default function Tokenomics() {
       </div>
 
       <div className="mt-8 grid gap-5">
-        <ContractRow title="EVM Contract" ca={site.contracts.evm} chains={evm} />
-        <ContractRow title="Solana Contract" ca={site.contracts.solana} chains={sol} />
+        <ContractRow title="Contract Address" ca={site.contracts.evm} chains={evm} />
       </div>
     </section>
   );

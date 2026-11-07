@@ -51,7 +51,7 @@ export default function WalletModal() {
         </div>
 
         {!chain && (
-          <div className="mt-5 grid grid-cols-2 gap-3">
+          <div className="mt-5 grid gap-3">
             {CHAINS.map((c) => (
               <button key={c.key} onClick={() => setChainKey(c.key)}
                 className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-left font-semibold transition hover:border-volt/60 hover:bg-volt/10">
