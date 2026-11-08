@@ -8,8 +8,8 @@ All editable data lives in **`config/site.json`** (edit directly on GitHub):
 | Field | Meaning |
 |---|---|
 | `mode` | `"single"` = only `singleChain` (Robinhood) · `"multi"` = Robinhood + Solana + Base + BSC |
-| `contracts.evm` | Contract address on **Robinhood Chain** |
-| `contracts.sol` / `base` / `bsc` | CA on the extra chains (multi mode) |
+| `contracts.evm` | Contract address shared by all EVM chains (Robinhood, Base, BSC) |
+| `contracts.sol` | Solana mint (multi mode) |
 | `totalSupply`, `blockchain` | Tokenomics cards |
 | `buyUrl` | Link for the BUY button (empty → scrolls to Tokenomics) |
 | `social.x`, `social.telegram` | Community links (empty → "Coming soon") |

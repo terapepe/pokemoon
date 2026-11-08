@@ -1,6 +1,6 @@
 // Network parameters. Which ones are shown is set in site.json:
 //   "mode": "single" → only "singleChain" (Robinhood) · "mode": "multi" → all chains below
-// Contract addresses: site.json -> contracts.<chain key> (contracts.evm = Robinhood, contracts.sol = Solana).
+// Contract addresses: site.json -> contracts.evm (shared by all EVM chains) / contracts.sol (Solana).
 import site from './site.json';
 
 export const ALL_CHAINS = [
@@ -62,9 +62,9 @@ export const chainByHex = (hex) =>
   EVM_CHAINS.find((c) => c.chainId === parseInt(hex, 16));
 export const tokenUrl = (chain, ca) => (ca ? `${chain.explorer}${chain.tokenPath}${ca}` : null);
 
+// One CA for every EVM chain (contracts.evm), Solana uses contracts.sol
 const C = site.contracts || {};
-export const caOf = (chain) =>
-  (C[chain.key] || (chain.key === 'robinhood' ? C.evm : chain.type === 'solana' ? C.sol : '') || '').trim();
+export const caOf = (chain) => ((chain.type === 'solana' ? C.sol : C.evm) || '').trim();
 
 // "Robinhood Chain" (single) · "Robinhood Chain, Solana, Base & BNB Smart Chain" (multi)
 export const CHAIN_LABEL = CHAINS.map((c) => c.name).join(', ').replace(/, ([^,]*)$/, ' & $1');

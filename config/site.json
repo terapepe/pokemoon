@@ -9,9 +9,7 @@
   "blockchain": "Robinhood Chain",
   "contracts": {
     "evm": "0xa09d6cf24be4c5da6753ed5f35d787e61668989f",
-    "sol": "",
-    "base": "",
-    "bsc": ""
+    "sol": ""
   },
   "buyUrl": "https://fobo.fun/?token=0xa09d6cf24be4c5da6753ed5f35d787e61668989f",
   "social": {
