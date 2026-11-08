@@ -1,6 +1,6 @@
 const TRAITS = [
   { icon: '⚡', title: 'Electric Antenna', text: 'The lightning bolt on his helmet picks up every pump signal across Robinhood Chain.' },
-  { icon: '🧑‍🚀', title: 'Moon Suit', text: 'A bright orange space suit built for one mission only: landing $POKEMOON on the Moon.' },
+  { icon: '🧑‍🚀', title: 'Moon Suit', text: 'A bright orange space suit built for one mission only: landing $POKE on the Moon.' },
   { icon: '📡', title: 'Moon Tracker', text: 'The gadget on his belt always points to the next stop on the road to the Moon.' },
   { icon: '👋', title: 'Friendly Wave', text: 'Volty greets every new holder. Nobody gets left behind on the trip.' },
 ];
