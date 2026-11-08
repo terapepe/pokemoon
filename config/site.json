@@ -7,10 +7,10 @@
   "blockchain": "Robinhood Chain",
 
   "contracts": {
-    "evm": ""
+    "evm": "0xa09d6cf24be4c5da6753ed5f35d787e61668989f"
   },
 
-  "buyUrl": "https://fobo.fun/?token=",
+  "buyUrl": "https://fobo.fun/?token=0xa09d6cf24be4c5da6753ed5f35d787e61668989f",
 
   "social": {
     "x": "https://x.com/Pokemoon_Shop",
