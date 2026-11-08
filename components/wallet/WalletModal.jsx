@@ -26,12 +26,13 @@ function Row({ icon, name, hint, onClick, href, disabled }) {
 
 export default function WalletModal() {
   const w = useWallet();
-  const [chainKey, setChainKey] = useState(null);
+  const only = CHAINS.length === 1 ? CHAINS[0].key : null; // single mode: skip network step
+  const [chainKey, setChainKey] = useState(only);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState('');
   if (!w.modalOpen) return null;
 
-  const close = () => { w.setModalOpen(false); setChainKey(null); setErr(''); setBusy(false); };
+  const close = () => { w.setModalOpen(false); setChainKey(only); setErr(''); setBusy(false); };
   const run = async (fn) => {
     setErr(''); setBusy(true);
     try { await fn(); close(); }
@@ -44,7 +45,7 @@ export default function WalletModal() {
       <div className="w-full max-w-md rounded-3xl border border-volt/30 bg-space p-6 shadow-[0_0_60px_rgba(255,217,61,0.2)]" onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between">
           <h3 className="font-display text-2xl font-bold">
-            {chain ? <button onClick={() => setChainKey(null)} className="mr-2 text-volt">←</button> : null}
+            {chain && !only ? <button onClick={() => setChainKey(null)} className="mr-2 text-volt">←</button> : null}
             {chain ? `Connect · ${chain.name}` : 'Choose network'}
           </h3>
           <button onClick={close} className="text-2xl text-white/60 hover:text-white" aria-label="Close">×</button>

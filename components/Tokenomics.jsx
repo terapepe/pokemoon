@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import site from '@/config/site.json';
-import { CHAINS, tokenUrl } from '@/config/chains';
+import { CHAINS, CHAIN_LABEL, IS_SINGLE, caOf, tokenUrl } from '@/config/chains';
 import ChainBadge from './ChainBadge';
 
 function CopyButton({ value }) {
@@ -53,12 +53,11 @@ function ContractRow({ title, ca, chains }) {
 }
 
 export default function Tokenomics() {
-  const evm = CHAINS.filter((c) => c.type === 'evm');
   const info = [
     ['Token Name', site.name],
     ['Symbol', site.symbol],
     ['Total Supply', site.totalSupply],
-    ['Blockchain', site.blockchain],
+    [IS_SINGLE ? 'Blockchain' : 'Blockchains', IS_SINGLE ? site.blockchain : CHAIN_LABEL],
   ];
   return (
     <section id="tokenomics" className="mx-auto max-w-6xl px-5 py-24">
@@ -77,7 +76,9 @@ export default function Tokenomics() {
       </div>
 
       <div className="mt-8 grid gap-5">
-        <ContractRow title="Contract Address" ca={site.contracts.evm} chains={evm} />
+        {CHAINS.map((c) => (
+          <ContractRow key={c.key} title={IS_SINGLE ? 'Contract Address' : `${c.name} CA`} ca={caOf(c)} chains={[c]} />
+        ))}
       </div>
     </section>
   );

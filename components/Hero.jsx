@@ -1,4 +1,5 @@
 import site from '@/config/site.json';
+import { CHAIN_LABEL } from '@/config/chains';
 import HeroScene from './HeroScene';
 import HeroCA from './HeroCA';
 
@@ -8,7 +9,7 @@ export default function Hero() {
     <section id="home" className="mx-auto grid max-w-7xl items-center gap-10 px-5 pb-20 pt-32 lg:grid-cols-2 lg:pt-40">
       <div className="text-center lg:text-left">
         <span className="inline-block rounded-full border border-volt/40 bg-volt/10 px-4 py-1 text-sm font-semibold text-volt">
-          ⚡ {site.symbol} · Meme coin on Robinhood Chain
+          ⚡ {site.symbol} · Meme coin on {CHAIN_LABEL}
         </span>
         <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] sm:text-6xl xl:text-7xl">
           POKEMON <br className="hidden sm:block" />
@@ -23,7 +24,7 @@ export default function Hero() {
           </a>
           <a href="#community" className="btn-ghost text-lg">JOIN COMMUNITY</a>
         </div>
-        <HeroCA ca={site.contracts.evm} />
+        <HeroCA />
         <p className="mt-6 font-display text-xl tracking-widest text-volt/80">{site.slogan}</p>
       </div>
       <div className="relative mx-auto w-full max-w-xl">

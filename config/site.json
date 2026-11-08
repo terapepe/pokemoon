@@ -3,15 +3,17 @@
   "symbol": "$POKE",
   "domain": "https://pokemoon.shop",
   "slogan": "CATCH THE MOON. GO POKEMOON!",
+  "mode": "single",
+  "singleChain": "robinhood",
   "totalSupply": "To be announced",
   "blockchain": "Robinhood Chain",
-
   "contracts": {
-    "evm": "0xa09d6cf24be4c5da6753ed5f35d787e61668989f"
+    "evm": "0xa09d6cf24be4c5da6753ed5f35d787e61668989f",
+    "sol": "",
+    "base": "",
+    "bsc": ""
   },
-
   "buyUrl": "https://fobo.fun/?token=0xa09d6cf24be4c5da6753ed5f35d787e61668989f",
-
   "social": {
     "x": "https://x.com/Pokemoon_Shop",
     "telegram": ""
