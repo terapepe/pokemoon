@@ -1,9 +1,10 @@
-// Network parameters. Which ones are shown is set in site.json:
-//   "mode": "single" → only "singleChain" (Robinhood) · "mode": "multi" → all chains below
-// Contract addresses: site.json -> contracts.evm (shared by all EVM chains) / contracts.sol (Solana).
+// Network parameters (chain IDs, RPC, explorers). Everything editable lives in site.json:
+//   "mode": "single" → only "singleChain" (robinhood | solana | base | bsc)
+//   "mode": "multi"  → always all 4 chains, ordered by "multiOrder"
+//   "chains.<key>"   → name / short / color / tagline / ca (ca empty → contracts.evm or contracts.sol)
 import site from './site.json';
 
-export const ALL_CHAINS = [
+const BASE_CHAINS = [
   {
     key: 'robinhood',
     name: 'Robinhood Chain',
@@ -54,17 +55,35 @@ export const ALL_CHAINS = [
   },
 ];
 
-export const IS_SINGLE = site.mode !== 'multi' && ALL_CHAINS.some((c) => c.key === (site.singleChain || 'robinhood'));
-export const CHAINS = IS_SINGLE ? ALL_CHAINS.filter((c) => c.key === (site.singleChain || 'robinhood')) : ALL_CHAINS;
+// Merge per-chain overrides from site.json (empty values are ignored)
+const OV = site.chains || {};
+const clean = (o) => Object.fromEntries(Object.entries(o || {}).filter(([, v]) => v !== '' && v != null));
+export const ALL_CHAINS = BASE_CHAINS.map((c) => ({ ...c, ...clean(OV[c.key]) }));
+
+const single = ALL_CHAINS.find((c) => c.key === site.singleChain) || ALL_CHAINS[0];
+const order = [...(site.multiOrder || []), ...ALL_CHAINS.map((c) => c.key)];
+const MULTI = [...new Set(order)].map((k) => ALL_CHAINS.find((c) => c.key === k)).filter(Boolean);
+
+export const IS_SINGLE = site.mode !== 'multi';
+export const CHAINS = IS_SINGLE ? [single] : MULTI; // multi = always all 4
+export const PRIMARY = CHAINS[0]; // drives the accent color
 export const EVM_CHAINS = CHAINS.filter((c) => c.type === 'evm');
 export const chainByKey = (k) => CHAINS.find((c) => c.key === k);
-export const chainByHex = (hex) =>
-  EVM_CHAINS.find((c) => c.chainId === parseInt(hex, 16));
+export const chainByHex = (hex) => EVM_CHAINS.find((c) => c.chainId === parseInt(hex, 16));
 export const tokenUrl = (chain, ca) => (ca ? `${chain.explorer}${chain.tokenPath}${ca}` : null);
 
-// One CA for every EVM chain (contracts.evm), Solana uses contracts.sol
+// CA: chains.<key>.ca → else contracts.evm (all EVM chains share it) / contracts.sol
 const C = site.contracts || {};
-export const caOf = (chain) => ((chain.type === 'solana' ? C.sol : C.evm) || '').trim();
+export const caOf = (chain) => (chain.ca || (chain.type === 'solana' ? C.sol : C.evm) || '').trim();
 
-// "Robinhood Chain" (single) · "Robinhood Chain, Solana, Base & BNB Smart Chain" (multi)
+// Chains sharing the same CA are grouped (multi: RH + Base + BSC → one EVM CA)
+export const CA_GROUPS = CHAINS.reduce((acc, c) => {
+  const ca = caOf(c);
+  const id = ca ? ca.toLowerCase() : c.key;
+  const g = acc.find((x) => x.id === id);
+  g ? g.chains.push(c) : acc.push({ id, ca, chains: [c] });
+  return acc;
+}, []);
+
+// "Robinhood Chain" (single) · "Solana, Robinhood Chain, Base & BNB Smart Chain" (multi)
 export const CHAIN_LABEL = CHAINS.map((c) => c.name).join(', ').replace(/, ([^,]*)$/, ' & $1');

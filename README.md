@@ -7,15 +7,17 @@ All editable data lives in **`config/site.json`** (edit directly on GitHub):
 
 | Field | Meaning |
 |---|---|
-| `mode` | `"single"` = only `singleChain` (Robinhood) · `"multi"` = Robinhood + Solana + Base + BSC |
-| `contracts.evm` | Contract address shared by all EVM chains (Robinhood, Base, BSC) |
-| `contracts.sol` | Solana mint (multi mode) |
-| `totalSupply`, `blockchain` | Tokenomics cards |
-| `buyUrl` | Link for the BUY button (empty → scrolls to Tokenomics) |
+| `mode` | `"single"` = only `singleChain` · `"multi"` = always all 4 chains (Solana, Robinhood, Base, BSC) |
+| `singleChain` | `robinhood` \| `solana` \| `base` \| `bsc` — chain shown in single mode (accent color, badge, tagline follow it) |
+| `multiOrder` | Display order of chains in multi mode |
+| `contracts.evm` | CA shared by all EVM chains (Robinhood, Base, BSC) |
+| `contracts.sol` | Solana mint |
+| `chains.<key>` | Per-chain overrides: `name`, `short`, `color`, `tagline`, `ca` (empty `ca` → uses `contracts.evm` / `contracts.sol`) |
+| `totalSupply` | Tokenomics card |
 | `social.x`, `social.telegram` | Community links (empty → "Coming soon") |
 
-When a CA is filled in, the COPY button and explorer links turn on automatically:
-Robinhood → robinhoodchain.blockscout.com
+Chains with the same CA are grouped into one COPY CA block (multi: RH/BASE/BSC share one block, SOL has its own).
+When a CA is filled in, COPY and explorer links turn on automatically.
 
 Network params (chain IDs, RPC, explorers) are in `config/chains.js`.
 

@@ -1,12 +1,13 @@
 import './globals.css';
 import site from '@/config/site.json';
+import { CHAINS, CHAIN_LABEL, IS_SINGLE, PRIMARY } from '@/config/chains';
 
 export const metadata = {
   metadataBase: new URL(site.domain),
   title: `POKEMOON (${site.symbol}) — Catch the Moon`,
   description:
-    'Pokemoon is a community-driven meme coin on Robinhood Chain. Catch the Moon. Go Pokemoon!',
-  keywords: ['Pokemoon', 'POKEMOON', 'meme coin', 'Robinhood Chain', 'crypto'],
+    `Pokemoon is a community-driven meme coin on ${CHAIN_LABEL}. Catch the Moon. Go Pokemoon!`,
+  keywords: ['Pokemoon', 'POKEMOON', 'meme coin', ...CHAINS.map((c) => c.name), 'crypto'],
   openGraph: {
     title: `POKEMOON (${site.symbol})`,
     description: site.slogan,
@@ -30,7 +31,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body style={{ '--chain': IS_SINGLE ? PRIMARY.color : '#485CFF' }}>{children}</body>
     </html>
   );
 }

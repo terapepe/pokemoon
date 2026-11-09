@@ -1,10 +1,10 @@
 'use client';
 import { useState } from 'react';
 import site from '@/config/site.json';
-import { CHAINS, CHAIN_LABEL, IS_SINGLE, caOf, tokenUrl } from '@/config/chains';
+import { CA_GROUPS, CHAINS, CHAIN_LABEL, IS_SINGLE, tokenUrl } from '@/config/chains';
 import ChainBadge from './ChainBadge';
 
-function CopyButton({ value }) {
+function CopyButton({ value, label }) {
   const [done, setDone] = useState(false);
   const copy = async () => {
     try {
@@ -15,7 +15,7 @@ function CopyButton({ value }) {
   };
   return (
     <button onClick={copy} disabled={!value} className="btn-volt shrink-0 px-5 py-2.5 text-sm">
-      {done ? '✓ COPIED' : 'COPY CONTRACT ADDRESS'}
+      {done ? '✓ COPIED' : `COPY ${label} CA`}
     </button>
   );
 }
@@ -31,7 +31,7 @@ function ContractRow({ title, ca, chains }) {
         <code className="flex-1 break-all rounded-xl bg-navy/70 px-4 py-3 text-sm text-volt">
           {ca || 'To be announced'}
         </code>
-        <CopyButton value={ca} />
+        <CopyButton value={ca} label={chains.map((c) => c.short).join('/')} />
       </div>
       <div className="mt-4 flex flex-wrap gap-2">
         {chains.map((c) => {
@@ -57,7 +57,7 @@ export default function Tokenomics() {
     ['Token Name', site.name],
     ['Symbol', site.symbol],
     ['Total Supply', site.totalSupply],
-    [IS_SINGLE ? 'Blockchain' : 'Blockchains', IS_SINGLE ? site.blockchain : CHAIN_LABEL],
+    [CHAINS.length > 1 ? 'Blockchains' : 'Blockchain', CHAIN_LABEL],
   ];
   return (
     <section id="tokenomics" className="mx-auto max-w-6xl px-5 py-24">
@@ -76,8 +76,9 @@ export default function Tokenomics() {
       </div>
 
       <div className="mt-8 grid gap-5">
-        {CHAINS.map((c) => (
-          <ContractRow key={c.key} title={IS_SINGLE ? 'Contract Address' : `${c.name} CA`} ca={caOf(c)} chains={[c]} />
+        {CA_GROUPS.map((g) => (
+          <ContractRow key={g.id} ca={g.ca} chains={g.chains}
+            title={IS_SINGLE ? 'Contract Address' : g.chains.length > 1 ? 'EVM Contract Address' : `${g.chains[0].name} CA`} />
         ))}
       </div>
     </section>

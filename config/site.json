@@ -5,13 +5,18 @@
   "slogan": "CATCH THE MOON. GO POKEMOON!",
   "mode": "single",
   "singleChain": "robinhood",
+  "multiOrder": ["solana", "robinhood", "base", "bsc"],
   "totalSupply": "To be announced",
-  "blockchain": "Robinhood Chain",
   "contracts": {
     "evm": "0xa09d6cf24be4c5da6753ed5f35d787e61668989f",
     "sol": ""
   },
-  "buyUrl": "https://fobo.fun/?token=0xa09d6cf24be4c5da6753ed5f35d787e61668989f",
+  "chains": {
+    "robinhood": { "name": "Robinhood Chain", "short": "RH", "color": "#CCFF00", "tagline": "Fast, low-fee L2 built for trading", "ca": "" },
+    "solana": { "name": "Solana", "short": "SOL", "color": "#9945FF", "tagline": "Lightning-fast and meme-native", "ca": "" },
+    "base": { "name": "Base", "short": "BASE", "color": "#0052FF", "tagline": "Onchain with the Base community", "ca": "" },
+    "bsc": { "name": "BNB Smart Chain", "short": "BSC", "color": "#F0B90B", "tagline": "Degen energy on BNB Smart Chain", "ca": "" }
+  },
   "social": {
     "x": "https://x.com/Pokemoon_Shop",
     "telegram": ""
