@@ -8,8 +8,8 @@
   "multiOrder": ["solana", "robinhood", "base", "bsc"],
   "totalSupply": "To be announced",
   "contracts": {
-    "evm": "",
-    "sol": ""
+    "evm": "0xb1a2D00e59f10a28eA3D1b5D99E45Efe306a86ea",
+    "sol": "BemrdxFPSnve5cHP1JQJUhw69jggJ8xPhF9ZQirzg6ea"
   },
   "chains": {
     "robinhood": { "name": "Robinhood Chain", "short": "RH", "color": "#CCFF00", "tagline": "Fast, low-fee L2 built for trading", "ca": "" },
