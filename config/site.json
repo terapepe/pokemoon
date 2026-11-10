@@ -3,12 +3,12 @@
   "symbol": "$POKE",
   "domain": "https://pokemoon.shop",
   "slogan": "CATCH THE MOON. GO POKEMOON!",
-  "mode": "single",
+  "mode": "multi",
   "singleChain": "robinhood",
   "multiOrder": ["solana", "robinhood", "base", "bsc"],
   "totalSupply": "To be announced",
   "contracts": {
-    "evm": "0xa09d6cf24be4c5da6753ed5f35d787e61668989f",
+    "evm": "",
     "sol": ""
   },
   "chains": {
