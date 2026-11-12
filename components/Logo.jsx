@@ -21,7 +21,7 @@ export function LogoMark({ className = 'h-10 w-10' }) {
 
 export default function Logo() {
   return (
-    <a href="#home" className="flex items-center gap-2" aria-label="Pokemoon home">
+    <a href="#village" className="flex items-center gap-2" aria-label="Pokemoon home">
       <LogoMark className="h-9 w-9 sm:h-10 sm:w-10" />
       <span className="font-display text-xl font-bold tracking-wide sm:text-2xl">
         POKE<span className="text-volt text-glow">MOON</span>

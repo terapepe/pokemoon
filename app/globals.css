@@ -2,14 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-html { scroll-behavior: smooth; }
-body {
-  @apply bg-navy text-white font-body antialiased;
-  background-image:
-    radial-gradient(1200px 600px at 80% -10%, rgba(255, 217, 61, 0.12), transparent 60%),
-    radial-gradient(900px 600px at -10% 30%, color-mix(in srgb, var(--chain, #485CFF) 18%, transparent), transparent 60%),
-    radial-gradient(800px 500px at 50% 110%, rgba(255, 138, 31, 0.12), transparent 60%);
+:root {
+  /* Updated every frame by JourneyProvider while scrolling */
+  --sky-top: #6EC8FF;
+  --sky-bot: #DDF4FF;
+  --stars: 0;
+  --p: 0;
+  --moon-s: 0.35;
+  --moon-o: 0;
 }
+
+html { scroll-behavior: smooth; }
+body { @apply bg-navy text-white font-body antialiased; }
 
 @layer components {
   .btn {
@@ -24,8 +28,36 @@ body {
   .card {
     @apply rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-md;
   }
+  /* RPG-style dialog box: readable on any sky color */
+  .panel {
+    @apply rounded-3xl border-2 border-white/25 bg-navy/75 backdrop-blur-md;
+    box-shadow: 0 0 0 4px rgba(7, 11, 36, 0.35), 0 20px 50px rgba(7, 11, 36, 0.45);
+  }
+  .chapter {
+    @apply inline-flex items-center gap-2 rounded-full border-2 border-white/30 bg-navy/70 px-4 py-1 font-display text-sm font-semibold tracking-widest text-volt backdrop-blur;
+  }
   .section-title {
     @apply font-display text-4xl font-bold sm:text-5xl;
   }
   .text-glow { text-shadow: 0 0 24px rgba(255, 217, 61, 0.55); }
+  .text-outline { text-shadow: 0 3px 0 #070B24, 0 0 18px rgba(7, 11, 36, 0.6); }
+}
+
+/* Parallax: --lp is the zone's offset from viewport center (≈ -1…1) */
+.layer { position: absolute; inset: 0; will-change: transform; transform: translate3d(0, calc(var(--lp, 0) * var(--d, 0px)), 0); }
+
+/* Traveler walk cycle, only while the page is scrolling */
+.leg { transform-box: fill-box; transform-origin: top center; }
+html[data-moving='1'] .leg-a { animation: legs 0.36s ease-in-out infinite alternate; }
+html[data-moving='1'] .leg-b { animation: legs 0.36s ease-in-out infinite alternate-reverse; }
+html[data-moving='1'] .traveler-body { animation: step 0.36s ease-in-out infinite alternate; }
+@keyframes legs { from { transform: rotate(-16deg); } to { transform: rotate(16deg); } }
+@keyframes step { from { transform: translateY(0); } to { transform: translateY(-3px); } }
+
+.eye { transform-box: fill-box; transform-origin: center; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .layer { transform: none; }
 }

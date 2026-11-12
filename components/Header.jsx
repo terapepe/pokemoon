@@ -5,7 +5,7 @@ import ChainBadge from './ChainBadge';
 import { useWallet } from './wallet/WalletContext';
 import { EVM_CHAINS, chainByKey } from '@/config/chains';
 
-const NAV = [['Home', '#home'], ['Tokenomics', '#tokenomics'], ['About', '#about'], ['Volty', '#volty'], ['Community', '#community']];
+const NAV = [['🏡 Village', '#village'], ['🌲 Legend', '#forest'], ['⛰️ Volty', '#peak'], ['🌊 Tokenomics', '#sea'], ['🚀 Quests', '#sky'], ['🌕 Moon', '#moon']];
 const short = (a) => (a ? `${a.slice(0, 4)}…${a.slice(-4)}` : '');
 
 function WalletButton() {
@@ -56,19 +56,19 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition ${scrolled ? 'bg-navy/85 shadow-lg backdrop-blur-md' : ''}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 transition ${scrolled ? 'bg-navy/70 shadow-lg backdrop-blur-md' : 'bg-gradient-to-b from-navy/60 to-transparent'}`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4">
         <Logo />
-        <nav className="hidden items-center gap-8 md:flex">
-          {NAV.map(([l, h]) => <a key={h} href={h} className="font-semibold text-white/80 transition hover:text-volt">{l}</a>)}
+        <nav className="hidden items-center gap-1 rounded-full border-2 border-white/20 bg-navy/60 p-1 backdrop-blur lg:flex">
+          {NAV.map(([l, h]) => <a key={h} href={h} className="rounded-full px-3 py-1.5 text-sm font-semibold text-white/85 transition hover:bg-volt/15 hover:text-volt">{l}</a>)}
         </nav>
         <div className="flex items-center gap-2 sm:gap-3">
           <WalletButton />
-          <button className="text-2xl md:hidden" onClick={() => setMenu(!menu)} aria-label="Menu">☰</button>
+          <button className="text-2xl lg:hidden" onClick={() => setMenu(!menu)} aria-label="Menu">☰</button>
         </div>
       </div>
       {menu && (
-        <nav className="border-t border-white/10 bg-navy/95 px-5 py-3 md:hidden">
+        <nav className="border-t border-white/10 bg-navy/95 px-5 py-3 lg:hidden">
           {NAV.map(([l, h]) => <a key={h} href={h} onClick={() => setMenu(false)} className="block py-2 font-semibold text-white/80">{l}</a>)}
         </nav>
       )}

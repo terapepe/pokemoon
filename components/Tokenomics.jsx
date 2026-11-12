@@ -22,7 +22,7 @@ function CopyButton({ value, label }) {
 
 function ContractRow({ title, ca, chains }) {
   return (
-    <div className="card p-6">
+    <div className="panel p-6">
       <div className="flex flex-wrap items-center gap-2">
         <h3 className="mr-2 font-display text-xl font-semibold">{title}</h3>
         {chains.map((c) => <ChainBadge key={c.key} chain={c} />)}
@@ -54,33 +54,29 @@ function ContractRow({ title, ca, chains }) {
 
 export default function Tokenomics() {
   const info = [
-    ['Token Name', site.name],
-    ['Symbol', site.symbol],
-    ['Total Supply', site.totalSupply],
-    [CHAINS.length > 1 ? 'Blockchains' : 'Blockchain', CHAIN_LABEL],
+    ['🪙', 'Token Name', site.name],
+    ['💎', 'Symbol', site.symbol],
+    ['🧰', 'Total Supply', site.totalSupply],
+    ['🗺️', CHAINS.length > 1 ? 'Blockchains' : 'Blockchain', CHAIN_LABEL],
   ];
   return (
-    <section id="tokenomics" className="mx-auto max-w-6xl px-5 py-24">
-      <h2 className="section-title text-center">
-        <span className="text-volt text-glow">Tokenomics</span>
-      </h2>
-      <p className="mt-3 text-center text-white/60">Simple. Transparent. Moon-bound.</p>
-
-      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {info.map(([k, v]) => (
-          <div key={k} className="card p-6 text-center transition hover:-translate-y-1 hover:border-volt/50">
-            <p className="text-sm uppercase tracking-widest text-white/50">{k}</p>
-            <p className="mt-2 font-display text-xl font-semibold text-volt">{v}</p>
+    <div id="tokenomics">
+      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {info.map(([icon, k, v]) => (
+          <div key={k} className="panel p-5 text-center transition hover:-translate-y-1 hover:border-volt/60">
+            <div className="text-3xl">{icon}</div>
+            <p className="mt-1 text-xs font-bold uppercase tracking-widest text-white/50">{k}</p>
+            <p className="mt-1 font-display text-lg font-semibold text-volt">{v}</p>
           </div>
         ))}
       </div>
 
-      <div className="mt-8 grid gap-5">
+      <div className="mt-6 grid gap-4">
         {CA_GROUPS.map((g) => (
           <ContractRow key={g.id} ca={g.ca} chains={g.chains}
             title={IS_SINGLE ? 'Contract Address' : g.chains.length > 1 ? 'EVM Contract Address' : `${g.chains[0].name} CA`} />
         ))}
       </div>
-    </section>
+    </div>
   );
 }
