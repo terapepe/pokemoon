@@ -224,7 +224,7 @@ export function SkyRoad() {
 export function Moon() {
   const items = [
     { icon: '✈️', title: 'Join Telegram', text: 'Chat with fellow trainers 24/7.', href: site.social.telegram },
-    { icon: '𝕏', title: 'Follow on X', text: '@Pokemoon_Shop: news, memes and launches.', href: site.social.x },
+    { icon: '𝕏', title: 'Follow on X', text: `@${String(site.social.x || '').replace(/\/+$/, '').split('/').pop()}: news, memes and launches.`, href: site.social.x },
     { icon: '🏡', title: 'Travel Again', text: 'Back to Sparkle Village for another run.', href: '#village' },
   ];
   return (

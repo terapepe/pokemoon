@@ -37,6 +37,9 @@ The page is one scrolling journey: Sparkle Village → Whisperwood Forest → Th
 ## Run / build
 ```bash
 npm install
-npm run dev     # http://localhost:3000
-npm run build   # static site in ./out → upload contents to public_html
+npm run dev     # Vite, http://localhost:5173
+npm run build   # static site in ./dist (Vercel: framework Vite)
+```
+On load the site reads CA / name / symbol / X / Telegram of the newest token hybot launched for this domain (https://hybot.xyz/api/site-token), config/site.json is the fallback.
+```
 ```
