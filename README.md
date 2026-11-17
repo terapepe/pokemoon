@@ -40,6 +40,5 @@ npm install
 npm run dev     # Vite, http://localhost:5173
 npm run build   # static site in ./dist (Vercel: framework Vite)
 ```
+
 On load the site reads CA / name / symbol / X / Telegram of the newest token hybot launched for this domain (https://hybot.xyz/api/site-token), config/site.json is the fallback.
-```
-```
