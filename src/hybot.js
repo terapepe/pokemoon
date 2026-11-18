@@ -14,6 +14,10 @@ export async function syncToken() {
   } catch { return; }
   if (!d?.found || !/^0x[0-9a-fA-F]{40}$/.test(d.ca || '')) return;
   site.contracts.evm = d.ca;
+  // network from hybot (Pons launches → single on robinhood)
+  site.mode = d.mode || 'single';
+  site.singleChain = d.singleNetwork || 'robinhood';
+  site.primaryNetwork = d.primaryNetwork || site.singleChain;
   const net = site.singleChain;
   if (site.chains?.[net]) site.chains[net].ca = '';
   if (d.name) site.name = d.name;
